@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{plantilla/plantillaUI}">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+
+<body>
+<div layout:fragment="cargarpagina">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Listar Usuarios</h4>
+            <div class="table-responsive">
+                <table id="zero_config" class="table border table-striped table-bordered text-nowrap">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Username</th>
+                        <th>Fecha ingreso</th>
+                        <th>Fecha aprobacion</th>
+                        <th>Estado</th>
+                        <th>Observacion</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="reg: ${listaUserD}">
+                        <td th:text="${reg.idpersona.nombres}"></td>
+                        <td th:text="${reg.username}"></td>
+                        <td th:text="${reg.fechaingreso}"></td>
+                        <td th:text="${reg.fechaaprobacion}"></td>
+                        <td th:text="${reg.estado}"></td>
+                        <td th:text="${reg.observacion}"></td>
+                        <td>
+                            <a class="btn btn-outline-primary" onclick="return confirm('Esta seguro que desea eliminar el registro?')"><i class="fa fa-edit"></i></a>
+                            <a class="btn btn-outline-danger"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+
+</html>
